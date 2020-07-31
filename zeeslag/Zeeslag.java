@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 public class Zeeslag {
 
-	final static int HOOGTE = 5;
-	final static int BREEDTE = 5;
+	private final static int HOOGTE = 5;
+	private final static int BREEDTE = 5;
 	
 	private char[][] solution = new char[BREEDTE][HOOGTE];
-	char[][] guess = new char[BREEDTE][HOOGTE];
+	private char[][] guess = new char[BREEDTE][HOOGTE];
 	
-	Scanner sc = new Scanner(System.in);
+	private Scanner sc = new Scanner(System.in);
 	
 	public void start() {
 		initializeField(guess);
@@ -37,8 +37,14 @@ public class Zeeslag {
 	}
 	
 	private boolean allBoatsFound() {
-		//TODO: Write method body
-		return false;
+		for(int i=0; i<guess.length; i++) {
+			for(int j=0; j<guess[0].length; j++) {
+				if(solution[i][j] == '1' && guess[i][j] != 'X') {
+					return false;
+				}
+			}
+		}
+		return true;
 	}
 	
 	//TODO: Make randomly generated
